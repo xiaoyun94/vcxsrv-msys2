@@ -48,10 +48,10 @@ which python.exe > /dev/null 2>&1
 check-error 'Make sure that python.exe is in the PATH. (e.g. cp /usr/bin/python2.7.exe /usr/bin/python.exe)'
 
 # c:\perl should have a copy of strawberry perl portable edition
-which /cygdrive/c/perl/perl/bin/perl.exe > /dev/null 2>&1
+which /c/perl/perl/bin/perl.exe > /dev/null 2>&1
 check-error 'Please install strawberry perl portable edition into c:\perl'
 ORIPATH=$PATH
-export PATH=/cygdrive/c/perl/perl/bin:$PATH
+export PATH=/c/perl/perl/bin:$PATH
 
 # echo script lines from now one
 #set -v
@@ -59,20 +59,20 @@ if [[ "$BUILDDEPS" == "1" ]] ; then
 
 if [[ "$IS64" == "1" ]]; then
 	if [[ "$BUILDRELEASE" == "1" ]] ; then
-		MSBuild.exe freetype/freetypevc10.sln /t:Build /p:Configuration="Release Multithreaded" /p:Platform=x64 /m:$2
+		MSBuild.exe freetype/freetypevc10.sln -t:Build -p:Configuration="Release Multithreaded" -p:Platform=x64 -m:$2
 		check-error 'Error compiling freetype'
 	fi
 	if [[ "$BUILDDEBUG" == "1" ]] ; then
-		MSBuild.exe freetype/freetypevc10.sln /t:Build /p:Configuration="Debug Multithreaded" /p:Platform=x64 /m:$2
+		MSBuild.exe freetype/freetypevc10.sln -t:Build -p:Configuration="Debug Multithreaded" -p:Platform=x64 -m:$2
 		check-error 'Error compiling freetype'
 	fi
 else
 	if [[ "$BUILDRELEASE" == "1" ]] ; then
-		MSBuild.exe freetype/freetypevc10.sln /t:Build /p:Configuration="Release Multithreaded" /p:Platform=Win32 /m:$2
+		MSBuild.exe freetype/freetypevc10.sln -t:Build -p:Configuration="Release Multithreaded" -p:Platform=Win32 -m:$2
 		check-error 'Error compiling freetype'
 	fi
 	if [[ "$BUILDDEBUG" == "1" ]] ; then
-		MSBuild.exe freetype/freetypevc10.sln /t:Build /p:Configuration="Debug Multithreaded" /p:Platform=Win32 /m:$2
+		MSBuild.exe freetype/freetypevc10.sln -t:Build -p:Configuration="Debug Multithreaded" -p:Platform=Win32 -m:$2
 		check-error 'Error compiling freetype'
 	fi
 fi
@@ -151,12 +151,12 @@ if [[ "$IS64" == "1" ]]; then
 if [[ "$BUILDDEPS" == "1" ]] ; then
 
 	if [[ "$BUILDRELEASE" == "1" ]] ; then
-		MSBuild.exe tools/mhmake/mhmakevc10.sln /t:Build /p:Configuration=Release /p:Platform=x64 /m:$2
+		MSBuild.exe tools/mhmake/mhmakevc10.sln -t:Build -p:Configuration=Release -p:Platform=x64 -m:$2
 		check-error 'Error compiling mhmake for release'
 	fi
 
 	if [[ "$BUILDDEBUG" == "1" ]] ; then
-		MSBuild.exe tools/mhmake/mhmakevc10.sln /t:Build /p:Configuration=Debug /p:Platform=x64 /m:$2
+		MSBuild.exe tools/mhmake/mhmakevc10.sln -t:Build -p:Configuration=Debug -p:Platform=x64 -m:$2
 		check-error 'Error compiling mhmake for debug'
 	fi
 fi
@@ -178,11 +178,11 @@ else
 if [[ "$BUILDDEPS" == "1" ]] ; then
 
 	if [[ "$BUILDRELEASE" == "1" ]] ; then
-		MSBuild.exe tools/mhmake/mhmakevc10.sln /t:Build /p:Configuration=Release /p:Platform=Win32 /m:$2
+		MSBuild.exe tools/mhmake/mhmakevc10.sln -t:Build -p:Configuration=Release -p:Platform=Win32 -m:$2
 		check-error 'Error compiling mhmake for release'
 	fi
 	if [[ "$BUILDDEBUG" == "1" ]] ; then
-		MSBuild.exe tools/mhmake/mhmakevc10.sln /t:Build /p:Configuration=Debug /p:Platform=Win32 /m:$2
+		MSBuild.exe tools/mhmake/mhmakevc10.sln -t:Build -p:Configuration=Debug -p:Platform=Win32 -m:$2
 		check-error 'Error compiling mhmake for debug'
 	fi
 
