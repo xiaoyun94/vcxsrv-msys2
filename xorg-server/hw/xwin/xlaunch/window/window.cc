@@ -87,6 +87,8 @@ HWND CWindow::CreateWindowHandle()
             );
     if (ret == NULL)
         throw win32_error("CreateWindowEx failed");
+
+    ImmAssociateContext(ret, NULL);
     return ret;
 }
 

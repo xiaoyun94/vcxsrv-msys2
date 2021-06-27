@@ -90,6 +90,9 @@ winGetWindowInfo(WindowPtr pWin)
                              NULL,
                              g_hInstance,
                              pWin);
+
+                if (pWinPriv->hWnd != NULL) { ImmAssociateContext(pWinPriv->hWnd, NULL); }
+
                 winDebug("Window created %x %x %d %d %d %d\n",pWinPriv->hWnd,hWndParent,pWin->drawable.x-offsetx,pWin->drawable.y-offsety,pWin->drawable.width, pWin->drawable.height);
                 pWinPriv->fWglUsed=TRUE;
               }
@@ -136,6 +139,9 @@ winGetWindowInfo(WindowPtr pWin)
                              g_hInstance,
                              pWin);
                 pWinPriv->fWglUsed=TRUE;
+
+                if (pWinPriv->hWnd != NULL) { ImmAssociateContext(pWinPriv->hWnd, NULL); }
+                
                 /* copy size and window handle */
                 hwnd = pWinPriv->hWnd;
               }

@@ -591,6 +591,8 @@ glxWinScreenProbe(ScreenPtr pScreen)
         goto error;
     }
 
+    ImmAssociateContext(hwnd, NULL);
+
     hdc = GetDC(hwnd);
     if (!hdc) {
         LogMessage(X_ERROR, "AIGLX: Couldn't create a DC for render capabilities testing\n");

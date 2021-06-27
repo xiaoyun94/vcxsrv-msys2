@@ -112,6 +112,8 @@ graw_create_window_and_screen(int x,
    if (hWnd == NULL)
       goto fail;
 
+   ImmAssociateContext(hWnd, NULL);
+
    hDC = GetDC(hWnd);
    if (hDC == NULL)
       goto fail;

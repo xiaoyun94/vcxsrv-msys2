@@ -1,6 +1,7 @@
 # VCXSRV MSYS2
 - This is a tranplant version of vcxsrv open source code
 - Replace with msys2 to solve compile problem in cygwin
+- Solve too much number appended after pressing directions key, if Chinese IME has been switched.(New Feature In This Repo Only)
 
 # MSYS2 Compile Environemnt Intsall
 ```bash

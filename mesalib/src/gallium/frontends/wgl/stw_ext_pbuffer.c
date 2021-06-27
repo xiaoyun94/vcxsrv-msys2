@@ -226,6 +226,7 @@ wglCreatePbufferARB(HDC hCurrentDC,
    if (!hWnd) {
       return 0;
    }
+   ImmAssociateContext(hWnd, NULL);
 
 #ifdef DEBUG
    /*

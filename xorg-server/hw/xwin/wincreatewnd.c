@@ -105,6 +105,8 @@ winCreateBoundingWindowFullScreen(ScreenPtr pScreen)
                              g_hInstance,     /* Instance handle */
                              pScreenPriv);      /* ScreenPrivates */
 
+    ImmAssociateContext(*phwnd, NULL);
+
     /* Hide the window */
     ShowWindow(*phwnd, SW_SHOWNORMAL);
 
@@ -300,6 +302,8 @@ winCreateBoundingWindowWindowed(ScreenPtr pScreen)
         ErrorF("winCreateBoundingWindowWindowed - CreateWindowEx () failed\n");
         return FALSE;
     }
+
+    ImmAssociateContext(*phwnd, NULL);
 
     winDebug("winCreateBoundingWindowWindowed - CreateWindowEx () returned\n");
 

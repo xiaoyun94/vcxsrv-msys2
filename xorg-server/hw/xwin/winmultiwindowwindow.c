@@ -581,6 +581,9 @@ winCreateWindowsWindow(WindowPtr pWin)
         ErrorF("winCreateWindowsWindow - CreateWindowExA () failed: %d\n",
                (int) GetLastError());
     }
+
+    ImmAssociateContext(hWnd, NULL);
+
     pWinPriv->hWnd = hWnd;
 
     /* If we asked the native WM to place the window, synchronize the X window position.

@@ -438,6 +438,8 @@ winClipboardCreateMessagingWindow(xcb_connection_t *conn, xcb_window_t iWindow, 
                            &cwcp);       /* Creation data */
     assert(hwnd != NULL);
 
+    ImmAssociateContext(hwnd, NULL);
+
     /* I'm not sure, but we may need to call this to start message processing */
     ShowWindow(hwnd, SW_HIDE);
 

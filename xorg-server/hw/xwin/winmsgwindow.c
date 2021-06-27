@@ -135,6 +135,8 @@ winCreateMsgWindow(void)
         return NULL;
     }
 
+    ImmAssociateContext(hwndMsg, NULL);
+
     winDebug("winCreateMsgWindow - Created msg window hwnd 0x%p\n", hwndMsg);
 
     return hwndMsg;
