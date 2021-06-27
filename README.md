@@ -22,9 +22,6 @@ make && make install
 mv /usr/bin/link /usr/bin/link-old
 ```
 
-# Manual Operation For Package
-- Modify Visual studio's Path in ./xorg-server/installer/packageall.bat
-
 # Compile Binary
 - Only x8864 version is verified
 - You must install Microsoft Visual Studio 2019 First (Community Version as Well)
